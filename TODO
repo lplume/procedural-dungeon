@@ -1,0 +1,3 @@
+move y axis if one building goes negative
+keep track of mx y and x axis in order to have the final image dimension
+convert to python package
