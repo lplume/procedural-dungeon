@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 from door import Door
 from building import Building
 from dungeon import Dungeon
