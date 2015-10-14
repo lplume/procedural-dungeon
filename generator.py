@@ -8,7 +8,7 @@ import pprint, random
 
 dungeon = Dungeon(100, 100)
 
-for i in range(0, 20):
+for i in range(0, 15):
     if i == 0:
         door = Door(40,40)
         dungeon.addDoor(door)
