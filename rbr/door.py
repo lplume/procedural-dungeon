@@ -1,11 +1,13 @@
+""" door.py: This object is just a door and it will be create on an empty building wall."""
+
 from random import choice, randint
 
-__author__ = 'mauro'
+__author__ = 'lplume'
+__license__ = 'Do the fuck you want public license'
 
 
 class Door:
-
-    def __init__(self, x = 0, y = 0):
+    def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
 

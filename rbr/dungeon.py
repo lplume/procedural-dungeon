@@ -1,11 +1,15 @@
+"""dungeon.py: this object is a doungeon holding buildings, doors and a fancy printable method (text and png)"""
+
 from PIL import Image
 import configparser, pprint
 
-__author__ = 'mauro'
+__author__ = 'lplume'
+__credits__ = ['dario']
+__license__ = 'Do the fuck you want public license'
+
 
 class Dungeon:
-
-    def __init__(self, cols = 10, rows = 10):
+    def __init__(self, cols=10, rows=10):
         self.cols = cols
         self.rows = rows
         self.dungeon = [['#' for x in range(cols)] for y in range(rows)]
@@ -14,7 +18,6 @@ class Dungeon:
         self.config = configparser.ConfigParser()
         self.config.read('config.sample.ini')
         self.minx, self.miny, self.maxx, self.maxy = 0, 0, 0, 0
-
 
     def getDimension(self):
         return self.cols, self.rows
@@ -82,9 +85,8 @@ class Dungeon:
             for j in range(0, height, tilesize):
                 output.paste(empty, (i, j))
 
-
         for b in self.buildings:
-            #width, height = b.getDimension()
+            # width, height = b.getDimension()
             tlx, tly, brx, bry = b.getCoord()
             ttlx = tilesize * (tlx + abs(self.minx) - 1)
             tbrx = tilesize * (brx + abs(self.minx))
@@ -107,7 +109,7 @@ class Dungeon:
             output.paste(door, (tx, ty))
 
         for b in self.buildings:
-            #width, height = b.getDimension()
+            # width, height = b.getDimension()
             tlx, tly, brx, bry = b.getCoord()
             ttlx = tilesize * (tlx + abs(self.minx))
             tbrx = tilesize * (brx + abs(self.minx))
@@ -118,22 +120,21 @@ class Dungeon:
                 for y in range(ttly, tbry, tilesize):
                     output.paste(floor, (x, y))
 
-
-        output.save('output.png')
+        output.save('../output/rbr.png')
 
         for d in self.doors:
-         door_x, door_y = d.getCoord()
-         self.dungeon[door_y][door_x] = 'D'
+            door_x, door_y = d.getCoord()
+            self.dungeon[door_y][door_x] = 'D'
 
         for b in self.buildings:
-         x, y = b.getTopCoord()
-         w, h = b.getDimension()
-         for row in range(y, y + h):
-             for col in range(x, x + w):
-                 self.dungeon[row][col] = ' '
+            x, y = b.getTopCoord()
+            w, h = b.getDimension()
+            for row in range(y, y + h):
+                for col in range(x, x + w):
+                    self.dungeon[row][col] = ' '
 
         for row in range(0, self.rows):
-         for col in range(0, self.cols):
-             print(self.dungeon[row][col], end="")
+            for col in range(0, self.cols):
+                print(self.dungeon[row][col], end="")
 
-         print()
+            print()
