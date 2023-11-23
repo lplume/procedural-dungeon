@@ -1,3 +1,6 @@
+# Archived novemeber 2023
+I might rewrite this in some other fashion soon(ish)™
+
 # Procedural dungeon
 Reorganizing the repository, this would be a python implementation of two algos
 about procedural doungeon:
